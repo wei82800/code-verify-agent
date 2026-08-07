@@ -1,0 +1,359 @@
+{
+  "experiment": "baseline",
+  "model": "claude-haiku-4-5-20251001",
+  "total_tasks": 50,
+  "passed": 27,
+  "success_rate": 0.54,
+  "results": [
+    {
+      "task_id": "humaneval_163",
+      "success": true,
+      "attempts": 0,
+      "code": "def generate_integers(a, b):\n    \"\"\"\n    Given two positive integers a and b, return the even digits between a\n    and b, in ascending order.\n\n    For example:\n    generate_integers(2, 8) => [2, 4, 6, 8]\n    generate_integers(8, 2) => [2, 4, 6, 8]\n    generate_integers(10, 14) => []\n    \"\"\"\n    # Ensure a is the smaller number\n    if a > b:\n        a, b = b, a\n    \n    # Even single digits are 0, 2, 4, 6, 8\n    even_digits = [0, 2, 4, 6, 8]\n    \n    # Return even digits that fall within the range [a, b]\n    return [digit for digit in even_digits if a <= digit <= b]\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmp1wjjcksd\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_generate_integers PASSED                          [100%]\n\n============================== 1 passed in 0.04s ==============================\n\n"
+    },
+    {
+      "task_id": "humaneval_28",
+      "success": false,
+      "attempts": 0,
+      "code": "def concatenate(strings: List[str]) -> str:\n    \"\"\" Concatenate list of strings into a single string\n    >>> concatenate([])\n    ''\n    >>> concatenate(['a', 'b', 'c'])\n    'abc'\n    \"\"\"\n    return ''.join(strings)\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpx8vqjwka\nplugins: anyio-3.5.0\ncollecting ... collected 0 items / 1 error\n\n=================================== ERRORS ====================================\n______________________ ERROR collecting test_solution.py ______________________\nE   NameError: name 'List' is not defined\n=========================== short test summary info ===========================\nERROR test_solution.py - NameError: name 'List' is not defined\n!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n============================== 1 error in 0.09s ===============================\n"
+    },
+    {
+      "task_id": "humaneval_6",
+      "success": false,
+      "attempts": 0,
+      "code": "def parse_nested_parens(paren_string: str) -> List[int]:\n    groups = paren_string.split()\n    result = []\n    \n    for group in groups:\n        max_depth = 0\n        current_depth = 0\n        \n        for char in group:\n            if char == '(':\n                current_depth += 1\n                max_depth = max(max_depth, current_depth)\n            elif char == ')':\n                current_depth -= 1\n        \n        result.append(max_depth)\n    \n    return result\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpvykhmwcv\nplugins: anyio-3.5.0\ncollecting ... collected 0 items / 1 error\n\n=================================== ERRORS ====================================\n______________________ ERROR collecting test_solution.py ______________________\nE   NameError: name 'List' is not defined\n=========================== short test summary info ===========================\nERROR test_solution.py - NameError: name 'List' is not defined\n!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n============================== 1 error in 0.09s ===============================\n"
+    },
+    {
+      "task_id": "humaneval_70",
+      "success": true,
+      "attempts": 0,
+      "code": "def strange_sort_list(lst):\n    '''\n    Given list of integers, return list in strange order.\n    Strange sorting, is when you start with the minimum value,\n    then maximum of the remaining integers, then minimum and so on.\n\n    Examples:\n    strange_sort_list([1, 2, 3, 4]) == [1, 4, 2, 3]\n    strange_sort_list([5, 5, 5, 5]) == [5, 5, 5, 5]\n    strange_sort_list([]) == []\n    '''\n    sorted_lst = sorted(lst)\n    result = []\n    left = 0\n    right = len(sorted_lst) - 1\n    \n    while left <= right:\n        result.append(sorted_lst[left])\n        left += 1\n        if left <= right:\n            result.append(sorted_lst[right])\n            right -= 1\n    \n    return result\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmptineagtf\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_strange_sort_list PASSED                          [100%]\n\n============================== 1 passed in 0.04s ==============================\n\n"
+    },
+    {
+      "task_id": "humaneval_62",
+      "success": true,
+      "attempts": 0,
+      "code": "def derivative(xs: list):\n    \"\"\" xs represent coefficients of a polynomial.\n    xs[0] + xs[1] * x + xs[2] * x^2 + ....\n     Return derivative of this polynomial in the same form.\n    >>> derivative([3, 1, 2, 4, 5])\n    [1, 4, 12, 20]\n    >>> derivative([1, 2, 3])\n    [2, 6]\n    \"\"\"\n    return [xs[i] * i for i in range(1, len(xs))]\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpnasz722u\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_derivative PASSED                                 [100%]\n\n============================== 1 passed in 0.04s ==============================\n\n"
+    },
+    {
+      "task_id": "humaneval_57",
+      "success": false,
+      "attempts": 0,
+      "code": "def monotonic(l: list):\n    \"\"\"Return True is list elements are monotonically increasing or decreasing.\n    >>> monotonic([1, 2, 4, 20])\n    True\n    >>> monotonic([1, 20, 4, 10])\n    False\n    >>> monotonic([4, 1, 0, -10])\n    True\n    \"\"\"\n    if len(l) <= 1:\n        return True\n    \n    # Check if monotonically increasing\n    increasing = all(l[i] <= l[i + 1] for i in range(len(l) - 1))\n    \n    # Check if monotonically decreasing\n    decreasing = all(l[i] >= l[i + 1] for i in range(len(l) - 1))\n    \n    return increasing or decreasing\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmp7i1nhtq0\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_monotonic FAILED                                  [100%]\n\n================================== FAILURES ===================================\nC:\\Users\\USER\\AppData\\Local\\Temp\\tmp7i1nhtq0\\solution.py:10: TypeError: object of type 'bool' has no len()\n=========================== short test summary info ===========================\nFAILED test_solution.py::test_monotonic - TypeError: object of type 'bool' ha...\n============================== 1 failed in 0.03s ==============================\n"
+    },
+    {
+      "task_id": "humaneval_35",
+      "success": false,
+      "attempts": 0,
+      "code": "def max_element(l: list):\n    \"\"\"Return maximum element in the list.\n    >>> max_element([1, 2, 3])\n    3\n    >>> max_element([5, 3, -5, 2, -3, 3, 9, 0, 123, 1, -10])\n    123\n    \"\"\"\n    return max(l)\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmp2z6redlm\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_max_element FAILED                                [100%]\n\n================================== FAILURES ===================================\nC:\\Users\\USER\\AppData\\Local\\Temp\\tmp2z6redlm\\solution.py:8: TypeError: 'int' object is not iterable\n=========================== short test summary info ===========================\nFAILED test_solution.py::test_max_element - TypeError: 'int' object is not it...\n============================== 1 failed in 0.03s ==============================\n"
+    },
+    {
+      "task_id": "humaneval_26",
+      "success": false,
+      "attempts": 0,
+      "code": "def remove_duplicates(numbers: List[int]) -> List[int]:\n    \"\"\" From a list of integers, remove all elements that occur more than once.\n    Keep order of elements left the same as in the input.\n    >>> remove_duplicates([1, 2, 3, 2, 4])\n    [1, 3, 4]\n    \"\"\"\n    count = {}\n    for num in numbers:\n        count[num] = count.get(num, 0) + 1\n    \n    return [num for num in numbers if count[num] == 1]\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpk7sh6ib_\nplugins: anyio-3.5.0\ncollecting ... collected 0 items / 1 error\n\n=================================== ERRORS ====================================\n______________________ ERROR collecting test_solution.py ______________________\nE   NameError: name 'List' is not defined\n=========================== short test summary info ===========================\nERROR test_solution.py - NameError: name 'List' is not defined\n!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n============================== 1 error in 0.09s ===============================\n"
+    },
+    {
+      "task_id": "humaneval_139",
+      "success": true,
+      "attempts": 0,
+      "code": "def special_factorial(n):\n    \"\"\"The Brazilian factorial is defined as:\n    brazilian_factorial(n) = n! * (n-1)! * (n-2)! * ... * 1!\n    where n > 0\n\n    For example:\n    >>> special_factorial(4)\n    288\n\n    The function will receive an integer as input and should return the special\n    factorial of this integer.\n    \"\"\"\n    def factorial(num):\n        if num <= 1:\n            return 1\n        result = 1\n        for i in range(2, num + 1):\n            result *= i\n        return result\n    \n    result = 1\n    for i in range(1, n + 1):\n        result *= factorial(i)\n    \n    return result\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmp4tt3cdof\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_special_factorial PASSED                          [100%]\n\n============================== 1 passed in 0.06s ==============================\n\n"
+    },
+    {
+      "task_id": "humaneval_22",
+      "success": false,
+      "attempts": 0,
+      "code": "def filter_integers(values: List[Any]) -> List[int]:\n    \"\"\" Filter given list of any python values only for integers\n    >>> filter_integers(['a', 3.14, 5])\n    [5]\n    >>> filter_integers([1, 2, 3, 'abc', {}, []])\n    [1, 2, 3]\n    \"\"\"\n    return [v for v in values if isinstance(v, int) and not isinstance(v, bool)]\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpyle_6x4f\nplugins: anyio-3.5.0\ncollecting ... collected 0 items / 1 error\n\n=================================== ERRORS ====================================\n______________________ ERROR collecting test_solution.py ______________________\nE   NameError: name 'List' is not defined\n=========================== short test summary info ===========================\nERROR test_solution.py - NameError: name 'List' is not defined\n!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n============================== 1 error in 0.09s ===============================\n"
+    },
+    {
+      "task_id": "humaneval_151",
+      "success": true,
+      "attempts": 0,
+      "code": "def double_the_difference(lst):\n    '''\n    Given a list of numbers, return the sum of squares of the numbers\n    in the list that are odd. Ignore numbers that are negative or not integers.\n    \n    double_the_difference([1, 3, 2, 0]) == 1 + 9 + 0 + 0 = 10\n    double_the_difference([-1, -2, 0]) == 0\n    double_the_difference([9, -2]) == 81\n    double_the_difference([0]) == 0  \n   \n    If the input list is empty, return 0.\n    '''\n    return sum(x**2 for x in lst if isinstance(x, int) and not isinstance(x, bool) and x >= 0 and x % 2 != 0)\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpcbd4exx9\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_double_the_difference PASSED                      [100%]\n\n============================== 1 passed in 0.04s ==============================\n\n"
+    },
+    {
+      "task_id": "humaneval_108",
+      "success": true,
+      "attempts": 0,
+      "code": "def count_nums(arr):\n    \"\"\"\n    Write a function count_nums which takes an array of integers and returns\n    the number of elements which has a sum of digits > 0.\n    If a number is negative, then its first signed digit will be negative:\n    e.g. -123 has signed digits -1, 2, and 3.\n    >>> count_nums([]) == 0\n    >>> count_nums([-1, 11, -11]) == 1\n    >>> count_nums([1, 1, 2]) == 3\n    \"\"\"\n    count = 0\n    for num in arr:\n        digit_sum = 0\n        is_negative = num < 0\n        num = abs(num)\n        \n        # Extract digits\n        digits = [int(d) for d in str(num)]\n        \n        # If original number was negative, make first digit negative\n        if is_negative:\n            digits[0] = -digits[0]\n        \n        # Sum all digits\n        digit_sum = sum(digits)\n        \n        # Count if sum > 0\n        if digit_sum > 0:\n            count += 1\n    \n    return count\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpdjv225az\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_count_nums PASSED                                 [100%]\n\n============================== 1 passed in 0.03s ==============================\n\n"
+    },
+    {
+      "task_id": "humaneval_8",
+      "success": false,
+      "attempts": 0,
+      "code": "def sum_product(numbers: List[int]) -> Tuple[int, int]:\n    \"\"\" For a given list of integers, return a tuple consisting of a sum and a product of all the integers in a list.\n    Empty sum should be equal to 0 and empty product should be equal to 1.\n    >>> sum_product([])\n    (0, 1)\n    >>> sum_product([1, 2, 3, 4])\n    (10, 24)\n    \"\"\"\n    total_sum = sum(numbers)\n    total_product = 1\n    for num in numbers:\n        total_product *= num\n    return (total_sum, total_product)\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmp6royx0dv\nplugins: anyio-3.5.0\ncollecting ... collected 0 items / 1 error\n\n=================================== ERRORS ====================================\n______________________ ERROR collecting test_solution.py ______________________\nE   NameError: name 'List' is not defined\n=========================== short test summary info ===========================\nERROR test_solution.py - NameError: name 'List' is not defined\n!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n============================== 1 error in 0.09s ===============================\n"
+    },
+    {
+      "task_id": "humaneval_7",
+      "success": false,
+      "attempts": 0,
+      "code": "def filter_by_substring(strings: List[str], substring: str) -> List[str]:\n    \"\"\" Filter an input list of strings only for ones that contain given substring\n    >>> filter_by_substring([], 'a')\n    []\n    >>> filter_by_substring(['abc', 'bacd', 'cde', 'array'], 'a')\n    ['abc', 'bacd', 'array']\n    \"\"\"\n    return [s for s in strings if substring in s]\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpv9zlp6n_\nplugins: anyio-3.5.0\ncollecting ... collected 0 items / 1 error\n\n=================================== ERRORS ====================================\n______________________ ERROR collecting test_solution.py ______________________\nE   NameError: name 'List' is not defined\n=========================== short test summary info ===========================\nERROR test_solution.py - NameError: name 'List' is not defined\n!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n============================== 1 error in 0.09s ===============================\n"
+    },
+    {
+      "task_id": "humaneval_23",
+      "success": false,
+      "attempts": 0,
+      "code": "def strlen(string: str) -> int:\n    \"\"\" Return length of given string\n    >>> strlen('')\n    0\n    >>> strlen('abc')\n    3\n    \"\"\"\n    return len(string)\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmputkno6nk\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_strlen FAILED                                     [100%]\n\n================================== FAILURES ===================================\nC:\\Users\\USER\\AppData\\Local\\Temp\\tmputkno6nk\\solution.py:8: TypeError: object of type 'int' has no len()\n=========================== short test summary info ===========================\nFAILED test_solution.py::test_strlen - TypeError: object of type 'int' has no...\n============================== 1 failed in 0.03s ==============================\n"
+    },
+    {
+      "task_id": "humaneval_55",
+      "success": false,
+      "attempts": 0,
+      "code": "def fibonacci(n: int):\n    \"\"\"Return n-th Fibonacci number.\n    >>> fibonacci(10)\n    55\n    >>> fibonacci(1)\n    1\n    >>> fibonacci(8)\n    21\n    \"\"\"\n    if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        a, b = 0, 1\n        for _ in range(2, n + 1):\n            a, b = b, a + b\n        return b\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpl1ttxsc2\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_fib FAILED                                        [100%]\n\n================================== FAILURES ===================================\nC:\\Users\\USER\\AppData\\Local\\Temp\\tmpl1ttxsc2\\test_solution.py:5: NameError: name 'fib' is not defined\n=========================== short test summary info ===========================\nFAILED test_solution.py::test_fib - NameError: name 'fib' is not defined\n============================== 1 failed in 0.04s ==============================\n"
+    },
+    {
+      "task_id": "humaneval_59",
+      "success": true,
+      "attempts": 0,
+      "code": "def largest_prime_factor(n: int):\n    \"\"\"Return the largest prime factor of n. Assume n > 1 and is not a prime.\n    >>> largest_prime_factor(13195)\n    29\n    >>> largest_prime_factor(2048)\n    2\n    \"\"\"\n    largest = None\n    \n    # Remove all factors of 2\n    while n % 2 == 0:\n        largest = 2\n        n = n // 2\n    \n    # Check odd factors from 3 onwards\n    i = 3\n    while i * i <= n:\n        while n % i == 0:\n            largest = i\n            n = n // i\n        i += 2\n    \n    # If n is still greater than 1, then it's a prime factor\n    if n > 1:\n        largest = n\n    \n    return largest\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpfgdgpl6k\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_largest_prime_factor PASSED                       [100%]\n\n============================== 1 passed in 0.03s ==============================\n\n"
+    },
+    {
+      "task_id": "humaneval_129",
+      "success": false,
+      "attempts": 0,
+      "code": "def minPath(grid, k):\n    n = len(grid)\n    \n    # Find the starting position (cell with value 1)\n    start_row, start_col = 0, 0\n    for i in range(n):\n        for j in range(n):\n            if grid[i][j] == 1:\n                start_row, start_col = i, j\n                break\n    \n    # DFS to find the minimum path\n    def dfs(row, col, path):\n        # If we've visited k cells, return the path\n        if len(path) == k:\n            return path\n        \n        # Try all four directions\n        directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]\n        candidates = []\n        \n        for dr, dc in directions:\n            new_row, new_col = row + dr, col + dc\n            # Check bounds\n            if 0 <= new_row < n and 0 <= new_col < n:\n                new_path = path + [grid[new_row][new_col]]\n                candidates.append((new_path, new_row, new_col))\n        \n        # Sort candidates by path value (lexicographically)\n        candidates.sort(key=lambda x: x[0])\n        \n        # Try each candidate in order\n        for new_path, new_row, new_col in candidates:\n            result = dfs(new_row, new_col, new_path)\n            if result is not None:\n                return result\n        \n        return None\n    \n    result = dfs(start_row, start_col, [grid[start_row][start_col]])\n    return result\n\nWait, this approach may be inefficient. Let me optimize it using memoization and a better strategy:\n\ndef minPath(grid, k):\n    n = len(grid)\n    \n    # Find the starting position (cell with value 1)\n    start_row, start_col = 0, 0\n    for i in range(n):\n        for j in range(n):\n            if grid[i][j] == 1:\n                start_row, start_col = i, j\n                break\n    \n    # Memoization: (row, col, steps_remaining) -> minimum path\n    memo = {}\n    \n    def dfs(row, col, steps_remaining):\n        # Base case: we've taken k-1 steps (visited k cells total)\n        if steps_remaining == 0:\n            return [grid[row][col]]\n        \n        if (row, col, steps_remaining) in memo:\n            return memo[(row, col, steps_remaining)]\n        \n        # Try all four directions\n        directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]\n        candidates = []\n        \n        for dr, dc in directions:\n            new_row, new_col = row + dr, col + dc\n            # Check bounds\n            if 0 <= new_row < n and 0 <= new_col < n:\n                sub_path = dfs(new_row, new_col, steps_remaining - 1)\n                if sub_path:\n                    candidates.append([grid[row][col]] + sub_path)\n        \n        # Sort and pick the lexicographically smallest\n        candidates.sort()\n        result = candidates[0] if candidates else None\n        \n        memo[(row, col, steps_remaining)] = result\n        return result\n    \n    return dfs(start_row, start_col, k - 1)\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpzmuaq6go\nplugins: anyio-3.5.0\ncollecting ... collected 0 items / 1 error\n\n=================================== ERRORS ====================================\n______________________ ERROR collecting test_solution.py ______________________\n..\\..\\..\\..\\anaconda3\\lib\\site-packages\\_pytest\\python.py:608: in _importtestmodule\n    mod = import_path(self.path, mode=importmode, root=self.config.rootpath)\n..\\..\\..\\..\\anaconda3\\lib\\site-packages\\_pytest\\pathlib.py:533: in import_path\n    importlib.import_module(module_name)\n..\\..\\..\\..\\anaconda3\\lib\\importlib\\__init__.py:127: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n<frozen importlib._bootstrap>:1030: in _gcd_import\n    ???\n<frozen importlib._bootstrap>:1007: in _find_and_load\n    ???\n<frozen importlib._bootstrap>:986: in _find_and_load_unlocked\n    ???\n<frozen importlib._bootstrap>:680: in _load_unlocked\n    ???\n..\\..\\..\\..\\anaconda3\\lib\\site-packages\\_pytest\\assertion\\rewrite.py:168: in exec_module\n    exec(co, module.__dict__)\ntest_solution.py:1: in <module>\n    from solution import *\nE     File \"C:\\Users\\USER\\AppData\\Local\\Temp\\tmpzmuaq6go\\solution.py\", line 43\nE       Wait, this approach may be inefficient. Let me optimize it using memoization and a better strategy:\nE                                                                                                          ^\nE   SyntaxError: invalid syntax\n=========================== short test summary info ===========================\nERROR test_solution.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n============================== 1 error in 0.12s ===============================\n"
+    },
+    {
+      "task_id": "humaneval_161",
+      "success": true,
+      "attempts": 0,
+      "code": "def solve(s):\n    # Check if string contains any letters\n    has_letters = any(c.isalpha() for c in s)\n    \n    if not has_letters:\n        # If no letters, reverse the string\n        return s[::-1]\n    else:\n        # If has letters, swap case for letters and keep others as is\n        return ''.join(c.swapcase() if c.isalpha() else c for c in s)\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpnt04ud9e\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_solve PASSED                                      [100%]\n\n============================== 1 passed in 0.03s ==============================\n\n"
+    },
+    {
+      "task_id": "humaneval_143",
+      "success": true,
+      "attempts": 0,
+      "code": "def words_in_sentence(sentence):\n    def is_prime(n):\n        if n < 2:\n            return False\n        if n == 2:\n            return True\n        if n % 2 == 0:\n            return False\n        for i in range(3, int(n**0.5) + 1, 2):\n            if n % i == 0:\n                return False\n        return True\n    \n    words = sentence.split()\n    result = [word for word in words if is_prime(len(word))]\n    return \" \".join(result)\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmp7cogufa7\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_words_in_sentence PASSED                          [100%]\n\n============================== 1 passed in 0.03s ==============================\n\n"
+    },
+    {
+      "task_id": "humaneval_50",
+      "success": false,
+      "attempts": 0,
+      "code": "def decode_shift(s: str):\n    \"\"\"\n    takes as input string encoded with encode_shift function. Returns decoded string.\n    \"\"\"\n    return \"\".join([chr(((ord(ch) - 5 - ord(\"a\")) % 26) + ord(\"a\")) for ch in s])\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpr4l660j_\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_encode_shift FAILED                               [100%]\n\n================================== FAILURES ===================================\nC:\\Users\\USER\\AppData\\Local\\Temp\\tmpr4l660j_\\test_solution.py:6: NameError: name 'encode_shift' is not defined\n=========================== short test summary info ===========================\nFAILED test_solution.py::test_encode_shift - NameError: name 'encode_shift' i...\n============================== 1 failed in 0.04s ==============================\n"
+    },
+    {
+      "task_id": "humaneval_155",
+      "success": true,
+      "attempts": 0,
+      "code": "def even_odd_count(num):\n    \"\"\"Given an integer. return a tuple that has the number of even and odd digits respectively.\n\n     Example:\n        even_odd_count(-12) ==> (1, 1)\n        even_odd_count(123) ==> (1, 2)\n    \"\"\"\n    even_count = 0\n    odd_count = 0\n    \n    for digit in str(abs(num)):\n        if int(digit) % 2 == 0:\n            even_count += 1\n        else:\n            odd_count += 1\n    \n    return (even_count, odd_count)\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpe4bct9yz\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_even_odd_count PASSED                             [100%]\n\n============================== 1 passed in 0.03s ==============================\n\n"
+    },
+    {
+      "task_id": "humaneval_107",
+      "success": true,
+      "attempts": 0,
+      "code": "def even_odd_palindrome(n):\n    \"\"\"\n    Given a positive integer n, return a tuple that has the number of even and odd\n    integer palindromes that fall within the range(1, n), inclusive.\n    \"\"\"\n    def is_palindrome(num):\n        s = str(num)\n        return s == s[::-1]\n    \n    even_count = 0\n    odd_count = 0\n    \n    for i in range(1, n + 1):\n        if is_palindrome(i):\n            if i % 2 == 0:\n                even_count += 1\n            else:\n                odd_count += 1\n    \n    return (even_count, odd_count)\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpx5lt665c\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_even_odd_palindrome PASSED                        [100%]\n\n============================== 1 passed in 0.03s ==============================\n\n"
+    },
+    {
+      "task_id": "humaneval_56",
+      "success": false,
+      "attempts": 0,
+      "code": "def correct_bracketing(brackets: str):\n    \"\"\" brackets is a string of \"<\" and \">\".\n    return True if every opening bracket has a corresponding closing bracket.\n\n    >>> correct_bracketing(\"<\")\n    False\n    >>> correct_bracketing(\"<>\")\n    True\n    >>> correct_bracketing(\"<<><>>\")\n    True\n    >>> correct_bracketing(\"><<>\")\n    False\n    \"\"\"\n    count = 0\n    for char in brackets:\n        if char == \"<\":\n            count += 1\n        elif char == \">\":\n            count -= 1\n        \n        if count < 0:\n            return False\n    \n    return count == 0\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpjcdrsb6v\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_correct_bracketing FAILED                         [100%]\n\n================================== FAILURES ===================================\nC:\\Users\\USER\\AppData\\Local\\Temp\\tmpjcdrsb6v\\solution.py:15: TypeError: 'bool' object is not iterable\n=========================== short test summary info ===========================\nFAILED test_solution.py::test_correct_bracketing - TypeError: 'bool' object i...\n============================== 1 failed in 0.04s ==============================\n"
+    },
+    {
+      "task_id": "humaneval_114",
+      "success": true,
+      "attempts": 0,
+      "code": "def minSubArraySum(nums):\n    min_sum = float('inf')\n    current_sum = 0\n    \n    for num in nums:\n        current_sum += num\n        min_sum = min(min_sum, current_sum)\n        if current_sum > 0:\n            current_sum = 0\n    \n    return min_sum\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpb1qj_741\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_minSubArraySum PASSED                             [100%]\n\n============================== 1 passed in 0.03s ==============================\n\n"
+    },
+    {
+      "task_id": "humaneval_71",
+      "success": true,
+      "attempts": 0,
+      "code": "def triangle_area(a, b, c):\n    '''\n    Given the lengths of the three sides of a triangle. Return the area of\n    the triangle rounded to 2 decimal points if the three sides form a valid triangle. \n    Otherwise return -1\n    Three sides make a valid triangle when the sum of any two sides is greater \n    than the third side.\n    Example:\n    triangle_area(3, 4, 5) == 6.00\n    triangle_area(1, 2, 10) == -1\n    '''\n    # Check if three sides form a valid triangle\n    if a + b > c and a + c > b and b + c > a:\n        # Use Heron's formula to calculate area\n        s = (a + b + c) / 2\n        area = (s * (s - a) * (s - b) * (s - c)) ** 0.5\n        return round(area, 2)\n    else:\n        return -1\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpd2bp_t4l\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_triangle_area PASSED                              [100%]\n\n============================== 1 passed in 0.04s ==============================\n\n"
+    },
+    {
+      "task_id": "humaneval_1",
+      "success": false,
+      "attempts": 0,
+      "code": "def separate_paren_groups(paren_string: str) -> List[str]:\n    \"\"\" Input to this function is a string containing multiple groups of nested parentheses. Your goal is to\n    separate those group into separate strings and return the list of those.\n    Separate groups are balanced (each open brace is properly closed) and not nested within each other\n    Ignore any spaces in the input string.\n    >>> separate_paren_groups('( ) (( )) (( )( ))')\n    ['()', '(())', '(()())']\n    \"\"\"\n    # Remove all spaces\n    cleaned = paren_string.replace(' ', '')\n    \n    result = []\n    current_group = ''\n    balance = 0\n    \n    for char in cleaned:\n        current_group += char\n        \n        if char == '(':\n            balance += 1\n        elif char == ')':\n            balance -= 1\n        \n        # When balance reaches 0, we have a complete group\n        if balance == 0 and current_group:\n            result.append(current_group)\n            current_group = ''\n    \n    return result\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpfz77fi_0\nplugins: anyio-3.5.0\ncollecting ... collected 0 items / 1 error\n\n=================================== ERRORS ====================================\n______________________ ERROR collecting test_solution.py ______________________\nE   NameError: name 'List' is not defined\n=========================== short test summary info ===========================\nERROR test_solution.py - NameError: name 'List' is not defined\n!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n============================== 1 error in 0.09s ===============================\n"
+    },
+    {
+      "task_id": "humaneval_40",
+      "success": false,
+      "attempts": 0,
+      "code": "def triples_sum_to_zero(l: list):\n    \"\"\"\n    triples_sum_to_zero takes a list of integers as an input.\n    it returns True if there are three distinct elements in the list that\n    sum to zero, and False otherwise.\n\n    >>> triples_sum_to_zero([1, 3, 5, 0])\n    False\n    >>> triples_sum_to_zero([1, 3, -2, 1])\n    True\n    >>> triples_sum_to_zero([1, 2, 3, 7])\n    False\n    >>> triples_sum_to_zero([2, 4, -5, 3, 9, 7])\n    True\n    >>> triples_sum_to_zero([1])\n    False\n    \"\"\"\n    n = len(l)\n    for i in range(n):\n        for j in range(i + 1, n):\n            for k in range(j + 1, n):\n                if l[i] + l[j] + l[k] == 0:\n                    return True\n    return False\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmp7i5eaara\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_triples_sum_to_zero FAILED                        [100%]\n\n================================== FAILURES ===================================\nC:\\Users\\USER\\AppData\\Local\\Temp\\tmp7i5eaara\\solution.py:18: TypeError: object of type 'bool' has no len()\n=========================== short test summary info ===========================\nFAILED test_solution.py::test_triples_sum_to_zero - TypeError: object of type...\n============================== 1 failed in 0.04s ==============================\n"
+    },
+    {
+      "task_id": "humaneval_152",
+      "success": true,
+      "attempts": 0,
+      "code": "def compare(game, guess):\n    return [abs(g - s) for g, s in zip(game, guess)]\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmp7l9kfsml\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_compare PASSED                                    [100%]\n\n============================== 1 passed in 0.03s ==============================\n\n"
+    },
+    {
+      "task_id": "humaneval_87",
+      "success": true,
+      "attempts": 0,
+      "code": "def get_row(lst, x):\n    \"\"\"\n    Find all occurrences of integer x in a 2D list and return their coordinates\n    as tuples (row, column), sorted by row ascending, then by column descending\n    within each row.\n    \"\"\"\n    coordinates = []\n    \n    # Iterate through each row with its index\n    for row_idx, row in enumerate(lst):\n        # Iterate through each column with its index\n        for col_idx, value in enumerate(row):\n            # If value matches x, add the coordinate\n            if value == x:\n                coordinates.append((row_idx, col_idx))\n    \n    # Sort by row ascending (first element), then by column descending (second element)\n    coordinates.sort(key=lambda coord: (coord[0], -coord[1]))\n    \n    return coordinates\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpobk8f61_\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_get_row PASSED                                    [100%]\n\n============================== 1 passed in 0.03s ==============================\n\n"
+    },
+    {
+      "task_id": "humaneval_138",
+      "success": true,
+      "attempts": 0,
+      "code": "def is_equal_to_sum_even(n):\n    \"\"\"Evaluate whether the given number n can be written as the sum of exactly 4 positive even numbers\n    Example\n    is_equal_to_sum_even(4) == False\n    is_equal_to_sum_even(6) == False\n    is_equal_to_sum_even(8) == True\n    \"\"\"\n    # The minimum sum of 4 positive even numbers is 2+2+2+2 = 8\n    # Any number n that can be written as sum of 4 positive even numbers must be >= 8\n    # Also, n must be even (sum of even numbers is even)\n    # For any n >= 8 and n is even, we can write it as:\n    # n = 2 + 2 + 2 + (n - 6)\n    # Since n >= 8, we have n - 6 >= 2, which is a positive even number\n    \n    return n >= 8 and n % 2 == 0",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpv2bh2cxa\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_is_equal_to_sum_even PASSED                       [100%]\n\n============================== 1 passed in 0.03s ==============================\n\n"
+    },
+    {
+      "task_id": "humaneval_39",
+      "success": false,
+      "attempts": 0,
+      "code": "def prime_fib(n: int):\n    \"\"\"\n    prime_fib returns n-th number that is a Fibonacci number and it's also prime.\n    >>> prime_fib(1)\n    2\n    >>> prime_fib(2)\n    3\n    >>> prime_fib(3)\n    5\n    >>> prime_fib(4)\n    13\n    >>> prime_fib(5)\n    89\n    \"\"\"\n    def is_prime(num):\n        if num < 2:\n            return False\n        if num == 2:\n            return True\n        if num % 2 == 0:\n            return False\n        for i in range(3, int(num**0.5) + 1, 2):\n            if num % i == 0:\n                return False\n        return True\n    \n    count = 0\n    a, b = 0, 1\n    \n    while count < n:\n        a, b = b, a + b\n        if is_prime(b):\n            count += 1\n    \n    return b\n",
+      "details": "Timeout after 30s"
+    },
+    {
+      "task_id": "humaneval_148",
+      "success": true,
+      "attempts": 0,
+      "code": "def bf(planet1, planet2):\n    planets = (\"Mercury\", \"Venus\", \"Earth\", \"Mars\", \"Jupiter\", \"Saturn\", \"Uranus\", \"Neptune\")\n    \n    if planet1 not in planets or planet2 not in planets:\n        return ()\n    \n    idx1 = planets.index(planet1)\n    idx2 = planets.index(planet2)\n    \n    start = min(idx1, idx2)\n    end = max(idx1, idx2)\n    \n    return planets[start + 1:end]\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpe4_i59i6\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_bf PASSED                                         [100%]\n\n============================== 1 passed in 0.04s ==============================\n\n"
+    },
+    {
+      "task_id": "humaneval_86",
+      "success": true,
+      "attempts": 0,
+      "code": "def anti_shuffle(s):\n    words = s.split(' ')\n    result = []\n    for word in words:\n        sorted_word = ''.join(sorted(word))\n        result.append(sorted_word)\n    return ' '.join(result)\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpzp9v5zro\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_anti_shuffle PASSED                               [100%]\n\n============================== 1 passed in 0.04s ==============================\n\n"
+    },
+    {
+      "task_id": "humaneval_156",
+      "success": true,
+      "attempts": 0,
+      "code": "def int_to_mini_roman(number):\n    \"\"\"\n    Given a positive integer, obtain its roman numeral equivalent as a string,\n    and return it in lowercase.\n    Restrictions: 1 <= num <= 1000\n    \"\"\"\n    val = [\n        1000, 900, 500, 400,\n        100, 90, 50, 40,\n        10, 9, 5, 4,\n        1\n    ]\n    syms = [\n        \"m\", \"cm\", \"d\", \"cd\",\n        \"c\", \"xc\", \"l\", \"xl\",\n        \"x\", \"ix\", \"v\", \"iv\",\n        \"i\"\n    ]\n    \n    roman_num = ''\n    i = 0\n    \n    while number > 0:\n        for _ in range(number // val[i]):\n            roman_num += syms[i]\n            number -= val[i]\n        i += 1\n    \n    return roman_num\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpau8j47wx\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_int_to_mini_roman PASSED                          [100%]\n\n============================== 1 passed in 0.03s ==============================\n\n"
+    },
+    {
+      "task_id": "humaneval_149",
+      "success": true,
+      "attempts": 0,
+      "code": "def sorted_list_sum(lst):\n    \"\"\"Write a function that accepts a list of strings as a parameter,\n    deletes the strings that have odd lengths from it,\n    and returns the resulted list with a sorted order,\n    The list is always a list of strings and never an array of numbers,\n    and it may contain duplicates.\n    The order of the list should be ascending by length of each word, and you\n    should return the list sorted by that rule.\n    If two words have the same length, sort the list alphabetically.\n    The function should return a list of strings in sorted order.\n    You may assume that all words will have the same length.\n    For example:\n    assert list_sort([\"aa\", \"a\", \"aaa\"]) => [\"aa\"]\n    assert list_sort([\"ab\", \"a\", \"aaa\", \"cd\"]) => [\"ab\", \"cd\"]\n    \"\"\"\n    # Filter out strings with odd lengths\n    even_length_strings = [s for s in lst if len(s) % 2 == 0]\n    \n    # Sort by length first, then alphabetically\n    sorted_result = sorted(even_length_strings, key=lambda x: (len(x), x))\n    \n    return sorted_result\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpxnstyz4u\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_sorted_list_sum PASSED                            [100%]\n\n============================== 1 passed in 0.03s ==============================\n\n"
+    },
+    {
+      "task_id": "humaneval_97",
+      "success": true,
+      "attempts": 0,
+      "code": "def multiply(a, b):\n    \"\"\"Complete the function that takes two integers and returns \n    the product of their unit digits.\n    Assume the input is always valid.\n    Examples:\n    multiply(148, 412) should return 16.\n    multiply(19, 28) should return 72.\n    multiply(2020, 1851) should return 0.\n    multiply(14,-15) should return 20.\n    \"\"\"\n    unit_digit_a = abs(a) % 10\n    unit_digit_b = abs(b) % 10\n    return unit_digit_a * unit_digit_b\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpzjwq344x\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_multiply PASSED                                   [100%]\n\n============================== 1 passed in 0.03s ==============================\n\n"
+    },
+    {
+      "task_id": "humaneval_12",
+      "success": false,
+      "attempts": 0,
+      "code": "def longest(strings: List[str]) -> Optional[str]:\n    \"\"\" Out of list of strings, return the longest one. Return the first one in case of multiple\n    strings of the same length. Return None in case the input list is empty.\n    >>> longest([])\n\n    >>> longest(['a', 'b', 'c'])\n    'a'\n    >>> longest(['a', 'bb', 'ccc'])\n    'ccc'\n    \"\"\"\n    if not strings:\n        return None\n    \n    max_string = strings[0]\n    for string in strings[1:]:\n        if len(string) > len(max_string):\n            max_string = string\n    \n    return max_string\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpyrceh1p2\nplugins: anyio-3.5.0\ncollecting ... collected 0 items / 1 error\n\n=================================== ERRORS ====================================\n______________________ ERROR collecting test_solution.py ______________________\nE   NameError: name 'List' is not defined\n=========================== short test summary info ===========================\nERROR test_solution.py - NameError: name 'List' is not defined\n!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n============================== 1 error in 0.09s ===============================\n"
+    },
+    {
+      "task_id": "humaneval_45",
+      "success": false,
+      "attempts": 0,
+      "code": "def triangle_area(a, h):\n    \"\"\"Given length of a side and high return area for a triangle.\n    >>> triangle_area(5, 3)\n    7.5\n    \"\"\"\n    return (a * h) / 2\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmp3edkyr97\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_triangle_area FAILED                              [100%]\n\n================================== FAILURES ===================================\nC:\\Users\\USER\\AppData\\Local\\Temp\\tmp3edkyr97\\test_solution.py:5: TypeError: triangle_area() missing 1 required positional argument: 'h'\n=========================== short test summary info ===========================\nFAILED test_solution.py::test_triangle_area - TypeError: triangle_area() miss...\n============================== 1 failed in 0.04s ==============================\n"
+    },
+    {
+      "task_id": "humaneval_135",
+      "success": true,
+      "attempts": 0,
+      "code": "def can_arrange(arr):\n    \"\"\"Create a function which returns the largest index of an element which\n    is not greater than or equal to the element immediately preceding it. If\n    no such element exists then return -1. The given array will not contain\n    duplicate values.\n\n    Examples:\n    can_arrange([1,2,4,3,5]) = 3\n    can_arrange([1,2,3]) = -1\n    \"\"\"\n    largest_index = -1\n    \n    for i in range(1, len(arr)):\n        if arr[i] < arr[i - 1]:\n            largest_index = i\n    \n    return largest_index\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmped4oim15\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_can_arrange PASSED                                [100%]\n\n============================== 1 passed in 0.03s ==============================\n\n"
+    },
+    {
+      "task_id": "humaneval_44",
+      "success": false,
+      "attempts": 0,
+      "code": "def change_base(x: int, base: int):\n    \"\"\"Change numerical base of input number x to base.\n    return string representation after the conversion.\n    base numbers are less than 10.\n    >>> change_base(8, 3)\n    '22'\n    >>> change_base(8, 2)\n    '1000'\n    >>> change_base(7, 2)\n    '111'\n    \"\"\"\n    if x == 0:\n        return '0'\n    \n    result = ''\n    while x > 0:\n        result = str(x % base) + result\n        x //= base\n    \n    return result\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpvb4ko_mv\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_change_base FAILED                                [100%]\n\n================================== FAILURES ===================================\nC:\\Users\\USER\\AppData\\Local\\Temp\\tmpvb4ko_mv\\test_solution.py:5: TypeError: change_base() missing 1 required positional argument: 'base'\n=========================== short test summary info ===========================\nFAILED test_solution.py::test_change_base - TypeError: change_base() missing ...\n============================== 1 failed in 0.04s ==============================\n"
+    },
+    {
+      "task_id": "humaneval_77",
+      "success": true,
+      "attempts": 0,
+      "code": "def iscube(a):\n    if a == 0:\n        return True\n    \n    if a > 0:\n        cube_root = round(a ** (1/3))\n        # Check nearby values due to floating point precision\n        for candidate in [cube_root - 1, cube_root, cube_root + 1]:\n            if candidate ** 3 == a:\n                return True\n        return False\n    else:\n        # For negative numbers\n        cube_root = round(-((-a) ** (1/3)))\n        # Check nearby values due to floating point precision\n        for candidate in [cube_root - 1, cube_root, cube_root + 1]:\n            if candidate ** 3 == a:\n                return True\n        return False\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmp703c2tgr\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_iscube PASSED                                     [100%]\n\n============================== 1 passed in 0.03s ==============================\n\n"
+    },
+    {
+      "task_id": "humaneval_33",
+      "success": true,
+      "attempts": 0,
+      "code": "def sort_third(l: list):\n    \"\"\"This function takes a list l and returns a list l' such that\n    l' is identical to l in the indicies that are not divisible by three, while its values at the indicies that are divisible by three are equal\n    to the values of the corresponding indicies of l, but sorted.\n    >>> sort_third([1, 2, 3])\n    [1, 2, 3]\n    >>> sort_third([5, 6, 3, 4, 8, 9, 2])\n    [2, 6, 3, 4, 8, 9, 5]\n    \"\"\"\n    # Extract elements at indices divisible by 3\n    third_elements = [l[i] for i in range(len(l)) if i % 3 == 0]\n    \n    # Sort them\n    third_elements.sort()\n    \n    # Create result list\n    result = l.copy()\n    \n    # Place sorted elements back at indices divisible by 3\n    third_index = 0\n    for i in range(len(result)):\n        if i % 3 == 0:\n            result[i] = third_elements[third_index]\n            third_index += 1\n    \n    return result\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpow9wzeoa\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_sort_third PASSED                                 [100%]\n\n============================== 1 passed in 0.05s ==============================\n\n"
+    },
+    {
+      "task_id": "humaneval_103",
+      "success": true,
+      "attempts": 0,
+      "code": "def rounded_avg(n, m):\n    if n > m:\n        return -1\n    \n    avg = (n + m) / 2\n    rounded = round(avg)\n    return bin(rounded)\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpptqx2m6_\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_rounded_avg PASSED                                [100%]\n\n============================== 1 passed in 0.04s ==============================\n\n"
+    },
+    {
+      "task_id": "humaneval_5",
+      "success": false,
+      "attempts": 0,
+      "code": "def intersperse(numbers: List[int], delimeter: int) -> List[int]:\n    \"\"\" Insert a number 'delimeter' between every two consecutive elements of input list `numbers'\n    >>> intersperse([], 4)\n    []\n    >>> intersperse([1, 2, 3], 4)\n    [1, 4, 2, 4, 3]\n    \"\"\"\n    if len(numbers) <= 1:\n        return numbers\n    \n    result = []\n    for i in range(len(numbers) - 1):\n        result.append(numbers[i])\n        result.append(delimeter)\n    result.append(numbers[-1])\n    \n    return result\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpb3t10l3o\nplugins: anyio-3.5.0\ncollecting ... collected 0 items / 1 error\n\n=================================== ERRORS ====================================\n______________________ ERROR collecting test_solution.py ______________________\nE   NameError: name 'List' is not defined\n=========================== short test summary info ===========================\nERROR test_solution.py - NameError: name 'List' is not defined\n!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n============================== 1 error in 0.12s ===============================\n"
+    },
+    {
+      "task_id": "humaneval_93",
+      "success": true,
+      "attempts": 0,
+      "code": "def encode(message):\n    vowels = 'aeiouAEIOU'\n    vowel_map = {'a': 'c', 'e': 'g', 'i': 'k', 'o': 'q', 'u': 'w',\n                 'A': 'C', 'E': 'G', 'I': 'K', 'O': 'Q', 'U': 'W'}\n    \n    result = []\n    for char in message:\n        if char in vowel_map:\n            result.append(vowel_map[char])\n        elif char.isalpha():\n            result.append(char.swapcase())\n        else:\n            result.append(char)\n    \n    return ''.join(result)\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmplsmeakrs\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_encode PASSED                                     [100%]\n\n============================== 1 passed in 0.04s ==============================\n\n"
+    },
+    {
+      "task_id": "humaneval_58",
+      "success": false,
+      "attempts": 0,
+      "code": "def common(l1: list, l2: list):\n    \"\"\"Return sorted unique common elements for two lists.\n    >>> common([1, 4, 3, 34, 653, 2, 5], [5, 7, 1, 5, 9, 653, 121])\n    [1, 5, 653]\n    >>> common([5, 3, 2, 8], [3, 2])\n    [2, 3]\n\n    \"\"\"\n    return sorted(list(set(l1) & set(l2)))\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpothtlexr\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_common FAILED                                     [100%]\n\n================================== FAILURES ===================================\nC:\\Users\\USER\\AppData\\Local\\Temp\\tmpothtlexr\\test_solution.py:5: TypeError: common() missing 1 required positional argument: 'l2'\n=========================== short test summary info ===========================\nFAILED test_solution.py::test_common - TypeError: common() missing 1 required...\n============================== 1 failed in 0.04s ==============================\n"
+    },
+    {
+      "task_id": "humaneval_68",
+      "success": true,
+      "attempts": 0,
+      "code": "def pluck(arr):\n    \"\"\"\n    Given an array representing a branch of a tree that has non-negative integer nodes\n    your task is to pluck one of the nodes and return it.\n    The plucked node should be the node with the smallest even value.\n    If multiple nodes with the same smallest even value are found return the node that has smallest index.\n\n    The plucked node should be returned in a list, [ smalest_value, its index ],\n    If there are no even values or the given array is empty, return [].\n    \"\"\"\n    if not arr:\n        return []\n    \n    smallest_even = None\n    smallest_index = None\n    \n    for index, value in enumerate(arr):\n        if value % 2 == 0:  # Check if even\n            if smallest_even is None or value < smallest_even:\n                smallest_even = value\n                smallest_index = index\n    \n    if smallest_even is None:\n        return []\n    \n    return [smallest_even, smallest_index]\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmprp8sd_1p\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_pluck PASSED                                      [100%]\n\n============================== 1 passed in 0.03s ==============================\n\n"
+    },
+    {
+      "task_id": "humaneval_15",
+      "success": false,
+      "attempts": 0,
+      "code": "def string_sequence(n: int) -> str:\n    return ' '.join(str(i) for i in range(n + 1))\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpu2lontv2\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_string_sequence FAILED                            [100%]\n\n================================== FAILURES ===================================\nC:\\Users\\USER\\AppData\\Local\\Temp\\tmpu2lontv2\\solution.py:2: TypeError: can only concatenate str (not \"int\") to str\n=========================== short test summary info ===========================\nFAILED test_solution.py::test_string_sequence - TypeError: can only concatena...\n============================== 1 failed in 0.04s ==============================\n"
+    },
+    {
+      "task_id": "humaneval_48",
+      "success": false,
+      "attempts": 0,
+      "code": "def is_palindrome(text: str):\n    \"\"\"\n    Checks if given string is a palindrome\n    >>> is_palindrome('')\n    True\n    >>> is_palindrome('aba')\n    True\n    >>> is_palindrome('aaaaa')\n    True\n    >>> is_palindrome('zbcd')\n    False\n    \"\"\"\n    return text == text[::-1]\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpdpen5mjl\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_is_palindrome FAILED                              [100%]\n\n================================== FAILURES ===================================\nC:\\Users\\USER\\AppData\\Local\\Temp\\tmpdpen5mjl\\solution.py:13: TypeError: 'bool' object is not subscriptable\n=========================== short test summary info ===========================\nFAILED test_solution.py::test_is_palindrome - TypeError: 'bool' object is not...\n============================== 1 failed in 0.03s ==============================\n"
+    }
+  ]
+}

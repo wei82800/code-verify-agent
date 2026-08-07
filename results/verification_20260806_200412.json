@@ -1,0 +1,81 @@
+{
+  "experiment": "verification",
+  "model": "claude-haiku-4-5-20251001",
+  "max_retries": 3,
+  "total_tasks": 10,
+  "passed": 9,
+  "success_rate": 0.9,
+  "avg_attempts": 0.5,
+  "results": [
+    {
+      "task_id": "mock_0",
+      "success": false,
+      "attempts": 2,
+      "code": "from typing import Union\n\n\ndef sum_two_numbers(a: Union[int, float], b: Union[int, float]) -> Union[int, float]:\n    \"\"\"\n    Returns the sum of two numbers.\n    \n    Args:\n        a: First number\n        b: Second number\n        \n    Returns:\n        The sum of a and b\n    \"\"\"\n    return a + b\n",
+      "details": "\u2717 Attempt 1 failed\nError: collecting ... collected 0 items / 1 error\n=================================== ERRORS ====================================\n______________________ ERROR collecting test_solution.py ____________________\n\u2717 Attempt 2 failed\nError: collecting ... collected 0 items / 1 error\n=================================== ERRORS ====================================\n______________________ ERROR collecting test_solution.py ____________________\n\u2717 Attempt 3 failed\nError: test_solution.py::test_add FAILED                                        [100%]\nC:\\Users\\USER\\AppData\\Local\\Temp\\tmp4ibzpr2_\\test_solution.py:4: NameError: name 'add' is not defined\nFAILED test_soluti"
+    },
+    {
+      "task_id": "mock_1",
+      "success": true,
+      "attempts": 0,
+      "code": "def is_prime(n: int) -> bool:\n    \"\"\"\n    Check if a number is prime.\n    \n    Args:\n        n: The number to check\n        \n    Returns:\n        True if the number is prime, False otherwise\n    \"\"\"\n    if n < 2:\n        return False\n    if n == 2:\n        return True\n    if n % 2 == 0:\n        return False\n    \n    # Check odd divisors up to sqrt(n)\n    i = 3\n    while i * i <= n:\n        if n % i == 0:\n            return False\n        i += 2\n    \n    return True\n",
+      "details": "\u2713 PASSED on attempt 1"
+    },
+    {
+      "task_id": "mock_2",
+      "success": true,
+      "attempts": 0,
+      "code": "def reverse_string(s: str) -> str:\n    \"\"\"Reverse a string.\"\"\"\n    return s[::-1]\n",
+      "details": "\u2713 PASSED on attempt 1"
+    },
+    {
+      "task_id": "mock_3",
+      "success": true,
+      "attempts": 1,
+      "code": "def find_max(numbers):\n    \"\"\"Find the maximum number in a list.\"\"\"\n    if not numbers:\n        return None\n    return max(numbers)\n",
+      "details": "\u2717 Attempt 1 failed\nError: test_solution.py::test_max FAILED                                        [100%]\nC:\\Users\\USER\\AppData\\Local\\Temp\\tmpz96engr1\\test_solution.py:4: NameError: name 'find_max' is not defined\nFAILED test_s\n\u2713 PASSED on attempt 2"
+    },
+    {
+      "task_id": "mock_4",
+      "success": true,
+      "attempts": 0,
+      "code": "def count_vowels(text: str) -> int:\n    \"\"\"Count the number of vowels in a string.\"\"\"\n    vowels = \"aeiouAEIOU\"\n    count = 0\n    for char in text:\n        if char in vowels:\n            count += 1\n    return count\n",
+      "details": "\u2713 PASSED on attempt 1"
+    },
+    {
+      "task_id": "mock_5",
+      "success": true,
+      "attempts": 0,
+      "code": "def is_palindrome(s: str) -> bool:\n    \"\"\"\n    Check if a string is a palindrome.\n    \n    Args:\n        s: The string to check\n        \n    Returns:\n        True if the string is a palindrome, False otherwise\n    \"\"\"\n    # Remove spaces and convert to lowercase for comparison\n    cleaned = s.replace(\" \", \"\").lower()\n    # Check if the cleaned string equals its reverse\n    return cleaned == cleaned[::-1]\n",
+      "details": "\u2713 PASSED on attempt 1"
+    },
+    {
+      "task_id": "mock_6",
+      "success": true,
+      "attempts": 1,
+      "code": "def fibonacci(n: int) -> int:\n    \"\"\"\n    Returns the Fibonacci number at index n.\n    \n    Args:\n        n: The index of the Fibonacci number to calculate (0-indexed)\n        \n    Returns:\n        The Fibonacci number at index n\n    \"\"\"\n    if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    \n    a, b = 0, 1\n    for _ in range(2, n + 1):\n        a, b = b, a + b\n    \n    return b\n",
+      "details": "\u2717 Attempt 1 failed\nError: test_solution.py::test_fib FAILED                                        [100%]\nC:\\Users\\USER\\anaconda3\\lib\\site-packages\\anthropic\\_base_client.py:1195: anthropic.NotFoundError: Error code: 404 - {'t\n\u2713 PASSED on attempt 2"
+    },
+    {
+      "task_id": "mock_7",
+      "success": true,
+      "attempts": 0,
+      "code": "def remove_duplicates(items):\n    \"\"\"Remove duplicates from a list while preserving order.\"\"\"\n    seen = set()\n    result = []\n    for item in items:\n        if item not in seen:\n            seen.add(item)\n            result.append(item)\n    return result\n",
+      "details": "\u2713 PASSED on attempt 1"
+    },
+    {
+      "task_id": "mock_8",
+      "success": true,
+      "attempts": 0,
+      "code": "def flatten(nested_list):\n    \"\"\"\n    Flattens a nested list into a single-level list.\n    \n    Args:\n        nested_list: A list that may contain nested lists\n        \n    Returns:\n        A flattened list containing all elements\n    \"\"\"\n    result = []\n    for item in nested_list:\n        if isinstance(item, list):\n            result.extend(flatten(item))\n        else:\n            result.append(item)\n    return result\n",
+      "details": "\u2713 PASSED on attempt 1"
+    },
+    {
+      "task_id": "mock_9",
+      "success": true,
+      "attempts": 1,
+      "code": "def bubble_sort(lst):\n    \"\"\"Sort a list without using the built-in sort() method.\"\"\"\n    # Create a copy to avoid modifying the original list\n    arr = lst.copy()\n    n = len(arr)\n    \n    # Bubble sort implementation\n    for i in range(n):\n        for j in range(0, n - i - 1):\n            if arr[j] > arr[j + 1]:\n                # Swap elements\n                arr[j], arr[j + 1] = arr[j + 1], arr[j]\n    \n    return arr\n",
+      "details": "\u2717 Attempt 1 failed\nError: test_solution.py::test_sort FAILED                                       [100%]\nC:\\Users\\USER\\AppData\\Local\\Temp\\tmpd9fzdyjw\\test_solution.py:4: NameError: name 'bubble_sort' is not defined\nFAILED tes\n\u2713 PASSED on attempt 2"
+    }
+  ]
+}

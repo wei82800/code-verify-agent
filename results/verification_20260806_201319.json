@@ -1,0 +1,81 @@
+{
+  "experiment": "verification",
+  "model": "claude-haiku-4-5-20251001",
+  "max_retries": 3,
+  "total_tasks": 10,
+  "passed": 10,
+  "success_rate": 1.0,
+  "avg_attempts": 0.0,
+  "results": [
+    {
+      "task_id": "mock_0",
+      "success": true,
+      "attempts": 0,
+      "code": "def add(a, b):\n    return a + b\n",
+      "details": "\u2713 PASSED on attempt 1"
+    },
+    {
+      "task_id": "mock_1",
+      "success": true,
+      "attempts": 0,
+      "code": "def is_prime(n):\n    if n < 2:\n        return False\n    if n == 2:\n        return True\n    if n % 2 == 0:\n        return False\n    for i in range(3, int(n**0.5) + 1, 2):\n        if n % i == 0:\n            return False\n    return True\n",
+      "details": "\u2713 PASSED on attempt 1"
+    },
+    {
+      "task_id": "mock_2",
+      "success": true,
+      "attempts": 0,
+      "code": "def reverse_string(s):\n    return s[::-1]\n",
+      "details": "\u2713 PASSED on attempt 1"
+    },
+    {
+      "task_id": "mock_3",
+      "success": true,
+      "attempts": 0,
+      "code": "def find_max(lst):\n    if not lst:\n        return None\n    max_num = lst[0]\n    for num in lst[1:]:\n        if num > max_num:\n            max_num = num\n    return max_num\n",
+      "details": "\u2713 PASSED on attempt 1"
+    },
+    {
+      "task_id": "mock_4",
+      "success": true,
+      "attempts": 0,
+      "code": "def count_vowels(string):\n    vowels = 'aeiouAEIOU'\n    return sum(1 for char in string if char in vowels)\n",
+      "details": "\u2713 PASSED on attempt 1"
+    },
+    {
+      "task_id": "mock_5",
+      "success": true,
+      "attempts": 0,
+      "code": "def is_palindrome(s):\n    cleaned = ''.join(c.lower() for c in s if c.isalnum())\n    return cleaned == cleaned[::-1]\n",
+      "details": "\u2713 PASSED on attempt 1"
+    },
+    {
+      "task_id": "mock_6",
+      "success": true,
+      "attempts": 0,
+      "code": "def fibonacci(n):\n    if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    \n    a, b = 0, 1\n    for _ in range(2, n + 1):\n        a, b = b, a + b\n    return b\n",
+      "details": "\u2713 PASSED on attempt 1"
+    },
+    {
+      "task_id": "mock_7",
+      "success": true,
+      "attempts": 0,
+      "code": "def remove_duplicates(lst):\n    seen = set()\n    result = []\n    for item in lst:\n        if item not in seen:\n            seen.add(item)\n            result.append(item)\n    return result\n",
+      "details": "\u2713 PASSED on attempt 1"
+    },
+    {
+      "task_id": "mock_8",
+      "success": true,
+      "attempts": 0,
+      "code": "def flatten(nested_list):\n    result = []\n    for item in nested_list:\n        if isinstance(item, list):\n            result.extend(flatten(item))\n        else:\n            result.append(item)\n    return result\n",
+      "details": "\u2713 PASSED on attempt 1"
+    },
+    {
+      "task_id": "mock_9",
+      "success": true,
+      "attempts": 0,
+      "code": "def bubble_sort(lst):\n    n = len(lst)\n    for i in range(n):\n        for j in range(0, n - i - 1):\n            if lst[j] > lst[j + 1]:\n                lst[j], lst[j + 1] = lst[j + 1], lst[j]\n    return lst\n",
+      "details": "\u2713 PASSED on attempt 1"
+    }
+  ]
+}

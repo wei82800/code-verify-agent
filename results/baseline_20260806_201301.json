@@ -1,0 +1,79 @@
+{
+  "experiment": "baseline",
+  "model": "claude-haiku-4-5-20251001",
+  "total_tasks": 10,
+  "passed": 10,
+  "success_rate": 1.0,
+  "results": [
+    {
+      "task_id": "mock_0",
+      "success": true,
+      "attempts": 0,
+      "code": "def add(a, b):\n    return a + b\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmp4mu925y4\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_add PASSED                                        [100%]\n\n============================== 1 passed in 0.03s ==============================\n\n"
+    },
+    {
+      "task_id": "mock_1",
+      "success": true,
+      "attempts": 0,
+      "code": "def is_prime(n):\n    if n < 2:\n        return False\n    if n == 2:\n        return True\n    if n % 2 == 0:\n        return False\n    for i in range(3, int(n**0.5) + 1, 2):\n        if n % i == 0:\n            return False\n    return True\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpnabewxf0\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_prime PASSED                                      [100%]\n\n============================== 1 passed in 0.02s ==============================\n\n"
+    },
+    {
+      "task_id": "mock_2",
+      "success": true,
+      "attempts": 0,
+      "code": "def reverse_string(s):\n    return s[::-1]\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpk19n_f6k\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_reverse PASSED                                    [100%]\n\n============================== 1 passed in 0.02s ==============================\n\n"
+    },
+    {
+      "task_id": "mock_3",
+      "success": true,
+      "attempts": 0,
+      "code": "def find_max(lst):\n    if not lst:\n        return None\n    max_num = lst[0]\n    for num in lst[1:]:\n        if num > max_num:\n            max_num = num\n    return max_num\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpwvjz1uiv\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_max PASSED                                        [100%]\n\n============================== 1 passed in 0.03s ==============================\n\n"
+    },
+    {
+      "task_id": "mock_4",
+      "success": true,
+      "attempts": 0,
+      "code": "def count_vowels(s):\n    vowels = 'aeiouAEIOU'\n    return sum(1 for char in s if char in vowels)\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmplfd97aql\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_vowels PASSED                                     [100%]\n\n============================== 1 passed in 0.03s ==============================\n\n"
+    },
+    {
+      "task_id": "mock_5",
+      "success": true,
+      "attempts": 0,
+      "code": "def is_palindrome(s):\n    cleaned = ''.join(char.lower() for char in s if char.isalnum())\n    return cleaned == cleaned[::-1]\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmphw_64trt\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_palindrome PASSED                                 [100%]\n\n============================== 1 passed in 0.02s ==============================\n\n"
+    },
+    {
+      "task_id": "mock_6",
+      "success": true,
+      "attempts": 0,
+      "code": "def fibonacci(n):\n    if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    \n    a, b = 0, 1\n    for _ in range(2, n + 1):\n        a, b = b, a + b\n    return b\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmp8eimypxb\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_fib PASSED                                        [100%]\n\n============================== 1 passed in 0.02s ==============================\n\n"
+    },
+    {
+      "task_id": "mock_7",
+      "success": true,
+      "attempts": 0,
+      "code": "def remove_duplicates(lst):\n    seen = set()\n    result = []\n    for item in lst:\n        if item not in seen:\n            seen.add(item)\n            result.append(item)\n    return result\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpyxa2eyeg\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_remove_dups PASSED                                [100%]\n\n============================== 1 passed in 0.02s ==============================\n\n"
+    },
+    {
+      "task_id": "mock_8",
+      "success": true,
+      "attempts": 0,
+      "code": "def flatten(nested_list):\n    result = []\n    for item in nested_list:\n        if isinstance(item, list):\n            result.extend(flatten(item))\n        else:\n            result.append(item)\n    return result\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmp73bhjqlq\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_flatten PASSED                                    [100%]\n\n============================== 1 passed in 0.02s ==============================\n\n"
+    },
+    {
+      "task_id": "mock_9",
+      "success": true,
+      "attempts": 0,
+      "code": "def bubble_sort(lst):\n    n = len(lst)\n    for i in range(n):\n        for j in range(0, n - i - 1):\n            if lst[j] > lst[j + 1]:\n                lst[j], lst[j + 1] = lst[j + 1], lst[j]\n    return lst\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmp56bzaqiw\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_sort PASSED                                       [100%]\n\n============================== 1 passed in 0.03s ==============================\n\n"
+    }
+  ]
+}

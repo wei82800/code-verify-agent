@@ -1,0 +1,81 @@
+{
+  "experiment": "verification",
+  "model": "claude-haiku-4-5-20251001",
+  "max_retries": 3,
+  "total_tasks": 10,
+  "passed": 9,
+  "success_rate": 0.9,
+  "avg_attempts": 0.3,
+  "results": [
+    {
+      "task_id": "mock_0",
+      "success": false,
+      "attempts": 2,
+      "code": "def add(a, b):\n    return a + b\n\nThe issue was a syntax error caused by an unclosed code block in the previous submission. The function `add` is correctly named and implemented. The corrected version above removes the erroneous text that was causing the SyntaxError.",
+      "details": "\u2717 Attempt 1 failed\nError: test_solution.py::test_add FAILED                                        [100%]\nC:\\Users\\USER\\AppData\\Local\\Temp\\tmph3e017ip\\test_solution.py:4: NameError: name 'add' is not defined\nFAILED test_soluti\n\u2717 Attempt 2 failed\nError: collecting ... collected 0 items / 1 error\n=================================== ERRORS ====================================\n______________________ ERROR collecting test_solution.py ____________________\n\u2717 Attempt 3 failed\nError: collecting ... collected 0 items / 1 error\n=================================== ERRORS ====================================\n______________________ ERROR collecting test_solution.py ____________________"
+    },
+    {
+      "task_id": "mock_1",
+      "success": true,
+      "attempts": 0,
+      "code": "def is_prime(n):\n    if n < 2:\n        return False\n    if n == 2:\n        return True\n    if n % 2 == 0:\n        return False\n    for i in range(3, int(n**0.5) + 1, 2):\n        if n % i == 0:\n            return False\n    return True\n",
+      "details": "\u2713 PASSED on attempt 1"
+    },
+    {
+      "task_id": "mock_2",
+      "success": true,
+      "attempts": 0,
+      "code": "def reverse_string(s):\n    return s[::-1]\n",
+      "details": "\u2713 PASSED on attempt 1"
+    },
+    {
+      "task_id": "mock_3",
+      "success": true,
+      "attempts": 0,
+      "code": "def find_max(numbers):\n    if not numbers:\n        return None\n    max_num = numbers[0]\n    for num in numbers[1:]:\n        if num > max_num:\n            max_num = num\n    return max_num\n",
+      "details": "\u2713 PASSED on attempt 1"
+    },
+    {
+      "task_id": "mock_4",
+      "success": true,
+      "attempts": 0,
+      "code": "def count_vowels(string):\n    vowels = \"aeiouAEIOU\"\n    return sum(1 for char in string if char in vowels)\n",
+      "details": "\u2713 PASSED on attempt 1"
+    },
+    {
+      "task_id": "mock_5",
+      "success": true,
+      "attempts": 0,
+      "code": "def is_palindrome(s):\n    cleaned = ''.join(char.lower() for char in s if char.isalnum())\n    return cleaned == cleaned[::-1]\n",
+      "details": "\u2713 PASSED on attempt 1"
+    },
+    {
+      "task_id": "mock_6",
+      "success": true,
+      "attempts": 0,
+      "code": "def fibonacci(n):\n    if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    \n    a, b = 0, 1\n    for _ in range(2, n + 1):\n        a, b = b, a + b\n    return b\n",
+      "details": "\u2713 PASSED on attempt 1"
+    },
+    {
+      "task_id": "mock_7",
+      "success": true,
+      "attempts": 0,
+      "code": "def remove_duplicates(lst):\n    seen = set()\n    result = []\n    for item in lst:\n        if item not in seen:\n            seen.add(item)\n            result.append(item)\n    return result\n",
+      "details": "\u2713 PASSED on attempt 1"
+    },
+    {
+      "task_id": "mock_8",
+      "success": true,
+      "attempts": 0,
+      "code": "def flatten(nested_list):\n    result = []\n    for item in nested_list:\n        if isinstance(item, list):\n            result.extend(flatten(item))\n        else:\n            result.append(item)\n    return result\n",
+      "details": "\u2713 PASSED on attempt 1"
+    },
+    {
+      "task_id": "mock_9",
+      "success": true,
+      "attempts": 1,
+      "code": "def bubble_sort(lst):\n    if len(lst) <= 1:\n        return lst\n    \n    arr = lst.copy()\n    n = len(arr)\n    \n    for i in range(n):\n        for j in range(0, n - i - 1):\n            if arr[j] > arr[j + 1]:\n                arr[j], arr[j + 1] = arr[j + 1], arr[j]\n    \n    return arr\n",
+      "details": "\u2717 Attempt 1 failed\nError: test_solution.py::test_sort FAILED                                       [100%]\nC:\\Users\\USER\\AppData\\Local\\Temp\\tmpzoosb8jl\\test_solution.py:4: NameError: name 'bubble_sort' is not defined\nFAILED tes\n\u2713 PASSED on attempt 2"
+    }
+  ]
+}

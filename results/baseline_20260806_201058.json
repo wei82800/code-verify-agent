@@ -1,0 +1,79 @@
+{
+  "experiment": "baseline",
+  "model": "claude-haiku-4-5-20251001",
+  "total_tasks": 10,
+  "passed": 7,
+  "success_rate": 0.7,
+  "results": [
+    {
+      "task_id": "mock_0",
+      "success": false,
+      "attempts": 0,
+      "code": "def sum_of_two_numbers(a, b):\n    return a + b\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpl418s5u3\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_add FAILED                                        [100%]\n\n================================== FAILURES ===================================\nC:\\Users\\USER\\AppData\\Local\\Temp\\tmpl418s5u3\\test_solution.py:4: NameError: name 'add' is not defined\n=========================== short test summary info ===========================\nFAILED test_solution.py::test_add - NameError: name 'add' is not defined\n============================== 1 failed in 0.03s ==============================\n"
+    },
+    {
+      "task_id": "mock_1",
+      "success": true,
+      "attempts": 0,
+      "code": "def is_prime(n):\n    if n < 2:\n        return False\n    if n == 2:\n        return True\n    if n % 2 == 0:\n        return False\n    for i in range(3, int(n**0.5) + 1, 2):\n        if n % i == 0:\n            return False\n    return True\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmp1v2a5xiy\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_prime PASSED                                      [100%]\n\n============================== 1 passed in 0.03s ==============================\n\n"
+    },
+    {
+      "task_id": "mock_2",
+      "success": true,
+      "attempts": 0,
+      "code": "def reverse_string(s):\n    return s[::-1]\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpjh_c48ol\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_reverse PASSED                                    [100%]\n\n============================== 1 passed in 0.03s ==============================\n\n"
+    },
+    {
+      "task_id": "mock_3",
+      "success": false,
+      "attempts": 0,
+      "code": "def find_maximum(numbers):\n    if not numbers:\n        return None\n    max_num = numbers[0]\n    for num in numbers[1:]:\n        if num > max_num:\n            max_num = num\n    return max_num\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpdiagobp1\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_max FAILED                                        [100%]\n\n================================== FAILURES ===================================\nC:\\Users\\USER\\AppData\\Local\\Temp\\tmpdiagobp1\\test_solution.py:4: NameError: name 'find_max' is not defined\n=========================== short test summary info ===========================\nFAILED test_solution.py::test_max - NameError: name 'find_max' is not defined\n============================== 1 failed in 0.03s ==============================\n"
+    },
+    {
+      "task_id": "mock_4",
+      "success": true,
+      "attempts": 0,
+      "code": "def count_vowels(s):\n    vowels = \"aeiouAEIOU\"\n    return sum(1 for char in s if char in vowels)\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpbmera7sn\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_vowels PASSED                                     [100%]\n\n============================== 1 passed in 0.03s ==============================\n\n"
+    },
+    {
+      "task_id": "mock_5",
+      "success": true,
+      "attempts": 0,
+      "code": "def is_palindrome(s):\n    cleaned = ''.join(char.lower() for char in s if char.isalnum())\n    return cleaned == cleaned[::-1]\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmp05448qr8\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_palindrome PASSED                                 [100%]\n\n============================== 1 passed in 0.03s ==============================\n\n"
+    },
+    {
+      "task_id": "mock_6",
+      "success": true,
+      "attempts": 0,
+      "code": "def fibonacci(n):\n    if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    \n    a, b = 0, 1\n    for _ in range(2, n + 1):\n        a, b = b, a + b\n    return b\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmptsj85yl0\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_fib PASSED                                        [100%]\n\n============================== 1 passed in 0.03s ==============================\n\n"
+    },
+    {
+      "task_id": "mock_7",
+      "success": true,
+      "attempts": 0,
+      "code": "def remove_duplicates(lst):\n    seen = set()\n    result = []\n    for item in lst:\n        if item not in seen:\n            seen.add(item)\n            result.append(item)\n    return result\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmp4v2mv2mf\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_remove_dups PASSED                                [100%]\n\n============================== 1 passed in 0.03s ==============================\n\n"
+    },
+    {
+      "task_id": "mock_8",
+      "success": true,
+      "attempts": 0,
+      "code": "def flatten(nested_list):\n    result = []\n    for item in nested_list:\n        if isinstance(item, list):\n            result.extend(flatten(item))\n        else:\n            result.append(item)\n    return result\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmp3l87vgks\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_flatten PASSED                                    [100%]\n\n============================== 1 passed in 0.03s ==============================\n\n"
+    },
+    {
+      "task_id": "mock_9",
+      "success": false,
+      "attempts": 0,
+      "code": "def sort_list(lst):\n    if len(lst) <= 1:\n        return lst\n    \n    pivot = lst[len(lst) // 2]\n    left = [x for x in lst if x < pivot]\n    middle = [x for x in lst if x == pivot]\n    right = [x for x in lst if x > pivot]\n    \n    return sort_list(left) + middle + sort_list(right)\n",
+      "details": "============================= test session starts =============================\nplatform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0 -- C:\\Users\\USER\\anaconda3\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\USER\\AppData\\Local\\Temp\\tmpjhe_mu1k\nplugins: anyio-3.5.0\ncollecting ... collected 1 item\n\ntest_solution.py::test_sort FAILED                                       [100%]\n\n================================== FAILURES ===================================\nC:\\Users\\USER\\AppData\\Local\\Temp\\tmpjhe_mu1k\\test_solution.py:4: NameError: name 'bubble_sort' is not defined\n=========================== short test summary info ===========================\nFAILED test_solution.py::test_sort - NameError: name 'bubble_sort' is not def...\n============================== 1 failed in 0.03s ==============================\n"
+    }
+  ]
+}

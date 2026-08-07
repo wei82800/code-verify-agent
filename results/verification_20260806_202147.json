@@ -1,0 +1,186 @@
+{
+  "experiment": "verification",
+  "model": "claude-haiku-4-5-20251001",
+  "max_retries": 3,
+  "total_tasks": 25,
+  "passed": 18,
+  "success_rate": 0.72,
+  "avg_attempts": 0.88,
+  "results": [
+    {
+      "task_id": "humaneval_163",
+      "success": true,
+      "attempts": 0,
+      "code": "def generate_integers(a, b):\n    \"\"\"\n    Given two positive integers a and b, return the even digits between a\n    and b, in ascending order.\n\n    For example:\n    generate_integers(2, 8) => [2, 4, 6, 8]\n    generate_integers(8, 2) => [2, 4, 6, 8]\n    generate_integers(10, 14) => []\n    \"\"\"\n    # Ensure a <= b\n    if a > b:\n        a, b = b, a\n    \n    # Return even digits (0, 2, 4, 6, 8) that fall within range [a, b]\n    return [digit for digit in [0, 2, 4, 6, 8] if a <= digit <= b]\n",
+      "details": "\u2713 PASSED on attempt 1"
+    },
+    {
+      "task_id": "humaneval_28",
+      "success": true,
+      "attempts": 2,
+      "code": "from typing import List\n\n\ndef concatenate(strings: List[str]) -> str:\n    \"\"\" Concatenate list of strings into a single string\n    >>> concatenate([])\n    ''\n    >>> concatenate(['a', 'b', 'c'])\n    'abc'\n    \"\"\"\n    return ''.join(strings)\n",
+      "details": "\u2717 Attempt 1 failed\nError: collecting ... collected 0 items / 1 error\n=================================== ERRORS ====================================\n______________________ ERROR collecting test_solution.py ____________________\n\u2717 Attempt 2 failed\nError: collecting ... collected 0 items / 1 error\n=================================== ERRORS ====================================\n______________________ ERROR collecting test_solution.py ____________________\n\u2713 PASSED on attempt 3"
+    },
+    {
+      "task_id": "humaneval_6",
+      "success": false,
+      "attempts": 2,
+      "code": "from typing import List\n\n\ndef parse_nested_parens(paren_string: str) -> List[int]:\n    \"\"\" Input to this function is a string represented multiple groups for nested parentheses separated by spaces.\n    For each of the group, output the deepest level of nesting of parentheses.\n    E.g. (()()) has maximum two levels of nesting while ((())) has three.\n\n    >>> parse_nested_parens('(()()) ((())) () ((())()())')\n    [2, 3, 1, 3]\n    \"\"\"\n    groups = paren_string.split()\n    result = []\n    \n    for group in groups:\n        max_depth = 0\n        current_depth = 0\n        \n        for char in group:\n            if char == '(':\n                current_depth += 1\n                max_depth = max(max_depth, current_depth)\n            elif char == ')':\n                current_depth -= 1\n        \n        result.append(max_depth)\n    \n    return result\n\nThe code provided was actually correct. The syntax error during collection suggests there may have been an issue with how the file was saved or encoded. The corrected version above is the proper implementation that should pass all tests.",
+      "details": "\u2717 Attempt 1 failed\nError: collecting ... collected 0 items / 1 error\n=================================== ERRORS ====================================\n______________________ ERROR collecting test_solution.py ____________________\n\u2717 Attempt 2 failed\nError: collecting ... collected 0 items / 1 error\n=================================== ERRORS ====================================\n______________________ ERROR collecting test_solution.py ____________________\n\u2717 Attempt 3 failed\nError: collecting ... collected 0 items / 1 error\n=================================== ERRORS ====================================\n______________________ ERROR collecting test_solution.py ____________________"
+    },
+    {
+      "task_id": "humaneval_70",
+      "success": true,
+      "attempts": 0,
+      "code": "def strange_sort_list(lst):\n    '''\n    Given list of integers, return list in strange order.\n    Strange sorting, is when you start with the minimum value,\n    then maximum of the remaining integers, then minimum and so on.\n\n    Examples:\n    strange_sort_list([1, 2, 3, 4]) == [1, 4, 2, 3]\n    strange_sort_list([5, 5, 5, 5]) == [5, 5, 5, 5]\n    strange_sort_list([]) == []\n    '''\n    sorted_lst = sorted(lst)\n    result = []\n    left = 0\n    right = len(sorted_lst) - 1\n    \n    while left <= right:\n        result.append(sorted_lst[left])\n        left += 1\n        if left <= right:\n            result.append(sorted_lst[right])\n            right -= 1\n    \n    return result\n",
+      "details": "\u2713 PASSED on attempt 1"
+    },
+    {
+      "task_id": "humaneval_62",
+      "success": true,
+      "attempts": 0,
+      "code": "def derivative(xs: list):\n    \"\"\" xs represent coefficients of a polynomial.\n    xs[0] + xs[1] * x + xs[2] * x^2 + ....\n     Return derivative of this polynomial in the same form.\n    >>> derivative([3, 1, 2, 4, 5])\n    [1, 4, 12, 20]\n    >>> derivative([1, 2, 3])\n    [2, 6]\n    \"\"\"\n    return [xs[i] * i for i in range(1, len(xs))]\n",
+      "details": "\u2713 PASSED on attempt 1"
+    },
+    {
+      "task_id": "humaneval_57",
+      "success": false,
+      "attempts": 2,
+      "code": "def monotonic(l: list):\n    \"\"\"Return True is list elements are monotonically increasing or decreasing.\n    >>> monotonic([1, 2, 4, 20])\n    True\n    >>> monotonic([1, 20, 4, 10])\n    False\n    >>> monotonic([4, 1, 0, -10])\n    True\n    \"\"\"\n    if len(l) <= 1:\n        return True\n    \n    # Check if monotonically increasing\n    increasing = all(l[i] <= l[i + 1] for i in range(len(l) - 1))\n    \n    # Check if monotonically decreasing\n    decreasing = all(l[i] >= l[i + 1] for i in range(len(l) - 1))\n    \n    return increasing or decreasing\n\nThe code logic is correct. The syntax error is likely due to a file encoding or invisible character issue in the previous submission. This is the same implementation but cleanly re-written to ensure proper syntax.",
+      "details": "\u2717 Attempt 1 failed\nError: test_solution.py::test_monotonic FAILED                                  [100%]\nC:\\Users\\USER\\AppData\\Local\\Temp\\tmpalyh5m1b\\solution.py:10: TypeError: object of type 'bool' has no len()\nFAILED test_s\n\u2717 Attempt 2 failed\nError: collecting ... collected 0 items / 1 error\n=================================== ERRORS ====================================\n______________________ ERROR collecting test_solution.py ____________________\n\u2717 Attempt 3 failed\nError: collecting ... collected 0 items / 1 error\n=================================== ERRORS ====================================\n______________________ ERROR collecting test_solution.py ____________________"
+    },
+    {
+      "task_id": "humaneval_35",
+      "success": false,
+      "attempts": 2,
+      "code": "def max_element(l: list):\n    \"\"\"Return maximum element in the list.\n    >>> max_element([1, 2, 3])\n    3\n    >>> max_element([5, 3, -5, 2, -3, 3, 9, 0, 123, 1, -10])\n    123\n    \"\"\"\n    if not l:\n        return None\n    \n    max_val = l[0]\n    for element in l[1:]:\n        if element > max_val:\n            max_val = element\n    \n    return max_val\n",
+      "details": "\u2717 Attempt 1 failed\nError: test_solution.py::test_max_element FAILED                                [100%]\nC:\\Users\\USER\\AppData\\Local\\Temp\\tmpw3mkyt7u\\solution.py:8: TypeError: 'int' object is not iterable\nFAILED test_solution\n\u2717 Attempt 2 failed\nError: collecting ... collected 0 items / 1 error\n=================================== ERRORS ====================================\n______________________ ERROR collecting test_solution.py ____________________\n\u2717 Attempt 3 failed\nError: test_solution.py::test_max_element FAILED                                [100%]\nC:\\Users\\USER\\AppData\\Local\\Temp\\tmpfna7grr4\\solution.py:11: TypeError: 'int' object is not subscriptable\nFAILED test_so"
+    },
+    {
+      "task_id": "humaneval_26",
+      "success": true,
+      "attempts": 2,
+      "code": "from typing import List\n\n\ndef remove_duplicates(numbers: List[int]) -> List[int]:\n    \"\"\" From a list of integers, remove all elements that occur more than once.\n    Keep order of elements left the same as in the input.\n    >>> remove_duplicates([1, 2, 3, 2, 4])\n    [1, 3, 4]\n    \"\"\"\n    count = {}\n    for num in numbers:\n        count[num] = count.get(num, 0) + 1\n    \n    return [num for num in numbers if count[num] == 1]\n",
+      "details": "\u2717 Attempt 1 failed\nError: collecting ... collected 0 items / 1 error\n=================================== ERRORS ====================================\n______________________ ERROR collecting test_solution.py ____________________\n\u2717 Attempt 2 failed\nError: collecting ... collected 0 items / 1 error\n=================================== ERRORS ====================================\n______________________ ERROR collecting test_solution.py ____________________\n\u2713 PASSED on attempt 3"
+    },
+    {
+      "task_id": "humaneval_139",
+      "success": true,
+      "attempts": 0,
+      "code": "def special_factorial(n):\n    \"\"\"The Brazilian factorial is defined as:\n    brazilian_factorial(n) = n! * (n-1)! * (n-2)! * ... * 1!\n    where n > 0\n\n    For example:\n    >>> special_factorial(4)\n    288\n\n    The function will receive an integer as input and should return the special\n    factorial of this integer.\n    \"\"\"\n    def factorial(num):\n        if num <= 1:\n            return 1\n        result = 1\n        for i in range(2, num + 1):\n            result *= i\n        return result\n    \n    result = 1\n    for i in range(1, n + 1):\n        result *= factorial(i)\n    \n    return result\n",
+      "details": "\u2713 PASSED on attempt 1"
+    },
+    {
+      "task_id": "humaneval_22",
+      "success": true,
+      "attempts": 2,
+      "code": "from typing import List, Any\n\n\ndef filter_integers(values: List[Any]) -> List[int]:\n    \"\"\" Filter given list of any python values only for integers\n    >>> filter_integers(['a', 3.14, 5])\n    [5]\n    >>> filter_integers([1, 2, 3, 'abc', {}, []])\n    [1, 2, 3]\n    \"\"\"\n    return [v for v in values if isinstance(v, int) and not isinstance(v, bool)]\n",
+      "details": "\u2717 Attempt 1 failed\nError: collecting ... collected 0 items / 1 error\n=================================== ERRORS ====================================\n______________________ ERROR collecting test_solution.py ____________________\n\u2717 Attempt 2 failed\nError: collecting ... collected 0 items / 1 error\n=================================== ERRORS ====================================\n______________________ ERROR collecting test_solution.py ____________________\n\u2713 PASSED on attempt 3"
+    },
+    {
+      "task_id": "humaneval_151",
+      "success": true,
+      "attempts": 0,
+      "code": "def double_the_difference(lst):\n    '''\n    Given a list of numbers, return the sum of squares of the numbers\n    in the list that are odd. Ignore numbers that are negative or not integers.\n    \n    double_the_difference([1, 3, 2, 0]) == 1 + 9 + 0 + 0 = 10\n    double_the_difference([-1, -2, 0]) == 0\n    double_the_difference([9, -2]) == 81\n    double_the_difference([0]) == 0  \n   \n    If the input list is empty, return 0.\n    '''\n    return sum(x**2 for x in lst if isinstance(x, int) and not isinstance(x, bool) and x >= 0 and x % 2 != 0)\n",
+      "details": "\u2713 PASSED on attempt 1"
+    },
+    {
+      "task_id": "humaneval_108",
+      "success": true,
+      "attempts": 0,
+      "code": "def count_nums(arr):\n    \"\"\"\n    Write a function count_nums which takes an array of integers and returns\n    the number of elements which has a sum of digits > 0.\n    If a number is negative, then its first signed digit will be negative:\n    e.g. -123 has signed digits -1, 2, and 3.\n    >>> count_nums([]) == 0\n    >>> count_nums([-1, 11, -11]) == 1\n    >>> count_nums([1, 1, 2]) == 3\n    \"\"\"\n    count = 0\n    for num in arr:\n        digit_sum = 0\n        if num < 0:\n            # For negative numbers, first digit is negative\n            num_str = str(num)[1:]  # Remove the '-' sign\n            digit_sum = -int(num_str[0])  # First digit is negative\n            for digit in num_str[1:]:\n                digit_sum += int(digit)\n        else:\n            # For positive numbers, sum all digits\n            for digit in str(num):\n                digit_sum += int(digit)\n        \n        if digit_sum > 0:\n            count += 1\n    \n    return count\n",
+      "details": "\u2713 PASSED on attempt 1"
+    },
+    {
+      "task_id": "humaneval_8",
+      "success": false,
+      "attempts": 2,
+      "code": "from typing import List, Tuple\n\n\ndef sum_product(numbers: List[int]) -> Tuple[int, int]:\n    \"\"\" For a given list of integers, return a tuple consisting of a sum and a product of all the integers in a list.\n    Empty sum should be equal to 0 and empty product should be equal to 1.\n    >>> sum_product([])\n    (0, 1)\n    >>> sum_product([1, 2, 3, 4])\n    (10, 24)\n    \"\"\"\n    total_sum = sum(numbers)\n    total_product = 1\n    for num in numbers:\n        total_product *= num\n    return (total_sum, total_product)\n\nThe code is actually correct. The syntax error is likely due to a file encoding issue or invisible characters. The implementation properly:\n1. Imports `List` and `Tuple` from `typing`\n2. Defines the function with correct signature\n3. Calculates sum (defaults to 0 for empty list)\n4. Calculates product (defaults to 1 for empty list)\n5. Returns the tuple",
+      "details": "\u2717 Attempt 1 failed\nError: collecting ... collected 0 items / 1 error\n=================================== ERRORS ====================================\n______________________ ERROR collecting test_solution.py ____________________\n\u2717 Attempt 2 failed\nError: collecting ... collected 0 items / 1 error\n=================================== ERRORS ====================================\n______________________ ERROR collecting test_solution.py ____________________\n\u2717 Attempt 3 failed\nError: collecting ... collected 0 items / 1 error\n=================================== ERRORS ====================================\n______________________ ERROR collecting test_solution.py ____________________"
+    },
+    {
+      "task_id": "humaneval_7",
+      "success": false,
+      "attempts": 2,
+      "code": "from typing import List\n\n\ndef filter_by_substring(strings: List[str], substring: str) -> List[str]:\n    \"\"\" Filter an input list of strings only for ones that contain given substring\n    >>> filter_by_substring([], 'a')\n    []\n    >>> filter_by_substring(['abc', 'bacd', 'cde', 'array'], 'a')\n    ['abc', 'bacd', 'array']\n    \"\"\"\n    return [s for s in strings if substring in s]\n",
+      "details": "\u2717 Attempt 1 failed\nError: collecting ... collected 0 items / 1 error\n=================================== ERRORS ====================================\n______________________ ERROR collecting test_solution.py ____________________\n\u2717 Attempt 2 failed\nError: collecting ... collected 0 items / 1 error\n=================================== ERRORS ====================================\n______________________ ERROR collecting test_solution.py ____________________\n\u2717 Attempt 3 failed\nError: test_solution.py::test_filter_by_substring FAILED                        [100%]\nC:\\Users\\USER\\AppData\\Local\\Temp\\tmp7ftzpr6l\\test_solution.py:5: TypeError: filter_by_substring() missing 1 required pos"
+    },
+    {
+      "task_id": "humaneval_23",
+      "success": false,
+      "attempts": 2,
+      "code": "def strlen(string: str) -> int:\n    \"\"\" Return length of given string\n    >>> strlen('')\n    0\n    >>> strlen('abc')\n    3\n    \"\"\"\n    count = 0\n    for _ in string:\n        count += 1\n    return count\n",
+      "details": "\u2717 Attempt 1 failed\nError: test_solution.py::test_strlen FAILED                                     [100%]\nC:\\Users\\USER\\AppData\\Local\\Temp\\tmpc0xhmkih\\solution.py:8: TypeError: object of type 'int' has no len()\nFAILED test_sol\n\u2717 Attempt 2 failed\nError: collecting ... collected 0 items / 1 error\n=================================== ERRORS ====================================\n______________________ ERROR collecting test_solution.py ____________________\n\u2717 Attempt 3 failed\nError: test_solution.py::test_strlen FAILED                                     [100%]\nC:\\Users\\USER\\AppData\\Local\\Temp\\tmp74vhuiu8\\solution.py:9: TypeError: 'int' object is not iterable\nFAILED test_solution"
+    },
+    {
+      "task_id": "humaneval_55",
+      "success": true,
+      "attempts": 1,
+      "code": "def fib(n: int):\n    \"\"\"Return n-th Fibonacci number.\n    >>> fib(10)\n    55\n    >>> fib(1)\n    1\n    >>> fib(8)\n    21\n    \"\"\"\n    if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    \n    a, b = 0, 1\n    for _ in range(2, n + 1):\n        a, b = b, a + b\n    return b\n",
+      "details": "\u2717 Attempt 1 failed\nError: test_solution.py::test_fib FAILED                                        [100%]\nC:\\Users\\USER\\AppData\\Local\\Temp\\tmp4dzs23th\\test_solution.py:5: NameError: name 'fib' is not defined\nFAILED test_soluti\n\u2713 PASSED on attempt 2"
+    },
+    {
+      "task_id": "humaneval_59",
+      "success": true,
+      "attempts": 0,
+      "code": "def largest_prime_factor(n: int):\n    \"\"\"Return the largest prime factor of n. Assume n > 1 and is not a prime.\n    >>> largest_prime_factor(13195)\n    29\n    >>> largest_prime_factor(2048)\n    2\n    \"\"\"\n    largest = None\n    \n    # Remove all factors of 2\n    while n % 2 == 0:\n        largest = 2\n        n = n // 2\n    \n    # Check odd factors starting from 3\n    i = 3\n    while i * i <= n:\n        while n % i == 0:\n            largest = i\n            n = n // i\n        i += 2\n    \n    # If n is still greater than 1, then it's a prime factor\n    if n > 1:\n        largest = n\n    \n    return largest\n",
+      "details": "\u2713 PASSED on attempt 1"
+    },
+    {
+      "task_id": "humaneval_129",
+      "success": true,
+      "attempts": 0,
+      "code": "def minPath(grid, k):\n    n = len(grid)\n    \n    # Find the position of value 1\n    start_pos = None\n    for i in range(n):\n        for j in range(n):\n            if grid[i][j] == 1:\n                start_pos = (i, j)\n                break\n        if start_pos:\n            break\n    \n    # DFS to find the lexicographically smallest path\n    def dfs(row, col, path, remaining):\n        if remaining == 0:\n            return path\n        \n        # Explore all four neighbors\n        neighbors = []\n        for dr, dc in [(0, 1), (0, -1), (1, 0), (-1, 0)]:\n            nr, nc = row + dr, col + dc\n            if 0 <= nr < n and 0 <= nc < n:\n                neighbors.append((grid[nr][nc], nr, nc))\n        \n        # Sort neighbors by their values to explore in lexicographically smallest order\n        neighbors.sort()\n        \n        best_path = None\n        for val, nr, nc in neighbors:\n            new_path = path + [val]\n            result = dfs(nr, nc, new_path, remaining - 1)\n            \n            if best_path is None or result < best_path:\n                best_path = result\n        \n        return best_path\n    \n    # Start DFS from position of 1\n    result = dfs(start_pos[0], start_pos[1], [1], k - 1)\n    return result\n",
+      "details": "\u2713 PASSED on attempt 1"
+    },
+    {
+      "task_id": "humaneval_161",
+      "success": true,
+      "attempts": 0,
+      "code": "def solve(s):\n    # Check if string contains any letters\n    has_letter = any(c.isalpha() for c in s)\n    \n    if not has_letter:\n        # If no letters, reverse the string\n        return s[::-1]\n    else:\n        # If has letters, swap case of letters and keep others as is\n        return ''.join(c.swapcase() if c.isalpha() else c for c in s)\n",
+      "details": "\u2713 PASSED on attempt 1"
+    },
+    {
+      "task_id": "humaneval_143",
+      "success": true,
+      "attempts": 0,
+      "code": "def words_in_sentence(sentence):\n    def is_prime(n):\n        if n < 2:\n            return False\n        if n == 2:\n            return True\n        if n % 2 == 0:\n            return False\n        for i in range(3, int(n**0.5) + 1, 2):\n            if n % i == 0:\n                return False\n        return True\n    \n    words = sentence.split()\n    result = [word for word in words if is_prime(len(word))]\n    return \" \".join(result)\n",
+      "details": "\u2713 PASSED on attempt 1"
+    },
+    {
+      "task_id": "humaneval_50",
+      "success": true,
+      "attempts": 1,
+      "code": "def encode_shift(s: str):\n    \"\"\"\n    returns encoded string by shifting every character by 5 in the alphabet.\n    \"\"\"\n    return \"\".join([chr(((ord(ch) + 5 - ord(\"a\")) % 26) + ord(\"a\")) for ch in s])\n\n\ndef decode_shift(s: str):\n    \"\"\"\n    takes as input string encoded with encode_shift function. Returns decoded string.\n    \"\"\"\n    return \"\".join([chr(((ord(ch) - 5 - ord(\"a\")) % 26) + ord(\"a\")) for ch in s])\n",
+      "details": "\u2717 Attempt 1 failed\nError: test_solution.py::test_encode_shift FAILED                               [100%]\nC:\\Users\\USER\\AppData\\Local\\Temp\\tmp985474l1\\test_solution.py:6: NameError: name 'encode_shift' is not defined\nFAILED te\n\u2713 PASSED on attempt 2"
+    },
+    {
+      "task_id": "humaneval_155",
+      "success": true,
+      "attempts": 0,
+      "code": "def even_odd_count(num):\n    \"\"\"Given an integer. return a tuple that has the number of even and odd digits respectively.\n\n     Example:\n        even_odd_count(-12) ==> (1, 1)\n        even_odd_count(123) ==> (1, 2)\n    \"\"\"\n    even_count = 0\n    odd_count = 0\n    \n    for digit_char in str(abs(num)):\n        digit = int(digit_char)\n        if digit % 2 == 0:\n            even_count += 1\n        else:\n            odd_count += 1\n    \n    return (even_count, odd_count)\n",
+      "details": "\u2713 PASSED on attempt 1"
+    },
+    {
+      "task_id": "humaneval_107",
+      "success": true,
+      "attempts": 0,
+      "code": "def even_odd_palindrome(n):\n    \"\"\"\n    Given a positive integer n, return a tuple that has the number of even and odd\n    integer palindromes that fall within the range(1, n), inclusive.\n    \"\"\"\n    def is_palindrome(num):\n        s = str(num)\n        return s == s[::-1]\n    \n    even_count = 0\n    odd_count = 0\n    \n    for i in range(1, n + 1):\n        if is_palindrome(i):\n            if i % 2 == 0:\n                even_count += 1\n            else:\n                odd_count += 1\n    \n    return (even_count, odd_count)\n",
+      "details": "\u2713 PASSED on attempt 1"
+    },
+    {
+      "task_id": "humaneval_56",
+      "success": false,
+      "attempts": 2,
+      "code": "def correct_bracketing(brackets: str):\n    \"\"\" brackets is a string of \"<\" and \">\".\n    return True if every opening bracket has a corresponding closing bracket.\n\n    >>> correct_bracketing(\"<\")\n    False\n    >>> correct_bracketing(\"<>\")\n    True\n    >>> correct_bracketing(\"<<><>>\")\n    True\n    >>> correct_bracketing(\"><<>\")\n    False\n    \"\"\"\n    count = 0\n    for char in brackets:\n        if char == \"<\":\n            count += 1\n        elif char == \">\":\n            count -= 1\n        if count < 0:\n            return False\n    return count == 0\n",
+      "details": "\u2717 Attempt 1 failed\nError: test_solution.py::test_correct_bracketing FAILED                         [100%]\nC:\\Users\\USER\\AppData\\Local\\Temp\\tmp1itb5r9j\\solution.py:15: TypeError: 'bool' object is not iterable\nFAILED test_soluti\n\u2717 Attempt 2 failed\nError: collecting ... collected 0 items / 1 error\n=================================== ERRORS ====================================\n______________________ ERROR collecting test_solution.py ____________________\n\u2717 Attempt 3 failed\nError: test_solution.py::test_correct_bracketing FAILED                         [100%]\nC:\\Users\\USER\\AppData\\Local\\Temp\\tmphwt4rn9p\\solution.py:15: TypeError: 'bool' object is not iterable\nFAILED test_soluti"
+    },
+    {
+      "task_id": "humaneval_114",
+      "success": true,
+      "attempts": 0,
+      "code": "def minSubArraySum(nums):\n    min_sum = nums[0]\n    current_sum = nums[0]\n    \n    for i in range(1, len(nums)):\n        current_sum = min(nums[i], current_sum + nums[i])\n        min_sum = min(min_sum, current_sum)\n    \n    return min_sum\n",
+      "details": "\u2713 PASSED on attempt 1"
+    }
+  ]
+}
